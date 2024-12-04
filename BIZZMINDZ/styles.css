@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Light blue background */
+    background-image: linear-gradient(to bottom right, #f0f8ff, #e0f7fa); /* Gradient effect */
+    color: #333;
+}
+
+header {
+    background-color: #2e8b57; /* Dark green header */
+    padding: 30px;
+    text-align: center;
+    color: white;
+    border-bottom: 4px solid #FFD700; /* Golden bottom border */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+
+nav a {
+    padding: 16px 24px;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #FFD700; /* Golden hover effect */
+    color: #333;
+    text-decoration: underline;
+}
+
+.tab-content {
+    padding: 30px;
+}
+
+.welcome-message, .startup-suggestions, .questionnaire {
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: #ffffff; /* White background for cards */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #2e8b57; /* Left border for emphasis */
+}
+
+.welcome-message h2, .startup-suggestions h2, .questionnaire h2 {
+    color: #2e8b57; /* Dark green color for headings */
+    text-align: center;
+}
+
+.startup-suggestions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.startup-suggestions li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #e7f1f8; /* Light background for each suggestion */
+}
+
+.startup-suggestions li:last-child {
+    border-bottom: none;
+}
+
+.questionnaire label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.questionnaire input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.questionnaire input:focus {
+    border-color: #2e8b57; /* Dark green focus border */
+}
+
+.questionnaire button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #2e8b57; /* Dark green button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.questionnaire button:hover {
+    background-color: #45a049; /* Lighter green hover effect */
+    transform: scale(1.05);
+}
+
+.result {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.steps {
+    margin-top: 20px;
+}
+
+.steps h4 {
+    color: #2e8b57; /* Dark green for step headings */
+}
+
+.steps ol {
+    margin-left: 20px;
+    font-size: 16px;
+    color: #555; /* Dark grey for step text */
+}
+.feedback-section {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.feedback-section h2 {
+    color: #2e8b57;
+    text-align: center;
+}
+.feedback-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form h2 {
+    color: #2e8b57;
+    text-align: center;
+}
+
+.feedback-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.feedback-form input, .feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.feedback-form button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.feedback-form button:hover {
+    background-color: #45a049;
+}

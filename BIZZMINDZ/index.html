@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizzMinds Business Startup Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa, #e8f5e9);
+            color: #333;
+        }
+
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        .tab-content {
+            padding: 20px;
+        }
+
+        .welcome-message,
+        .startup-suggestions,
+        .questionnaire,
+        .feedback-form,
+        .result-box {
+            background-color: white;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2e8b57;
+        }
+
+        button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .result-box {
+            border: 2px solid #2e8b57;
+            padding: 15px;
+        }
+
+        .creators {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #2e8b57;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BizzMinds Business Startup Guide</h1>
+    </header>
+    <nav>
+        <a href="#home" onclick="showTab('home')">Home</a>
+        <a href="#get-started" onclick="showTab('get-started')">Get Started</a>
+        <a href="#feedback" onclick="showTab('feedback')">Feedback</a>
+    </nav>
+
+    <div id="home" class="tab-content">
+        <div class="welcome-message">
+            <h2>Welcome to BizzMinds!</h2>
+            <p>Discover your path to entrepreneurial success with our comprehensive startup guide. Answer a few questions to receive personalized business suggestions and practical steps to turn your ideas into reality.</p>
+        </div>
+        <div class="startup-suggestions">
+            <h2>Business Startup Suggestions:</h2>
+            <ul>
+                <li><strong>Technology:</strong> Start a software development company, tech consulting firm, or a tech education platform.</li>
+                <li><strong>Food:</strong> Consider opening a restaurant, food truck, or catering service.</li>
+                <li><strong>Fashion:</strong> Launch a clothing line, online boutique, or fashion consultancy.</li>
+                <li><strong>Fitness:</strong> Explore opportunities in gym ownership, online fitness coaching, or fitness product lines.</li>
+                <li><strong>Art:</strong> Start an online gallery, offer art classes, or take custom art commissions.</li>
+            </ul>
+        </div>
+        <form class="questionnaire" id="businessForm">
+            <h2>Business Startup Questionnaire</h2>
+            <label for="interest">What are your interests?</label>
+            <input type="text" id="interest" name="interest" placeholder="e.g., Technology, Food, Fashion">
+
+            <label for="capital">How much capital do you plan to invest (INR)?</label>
+            <input type="number" id="capital" name="capital" placeholder="e.g., 1000000" step="any">
+
+            <label for="potential-income">What is your expected monthly income (INR)?</label>
+            <input type="number" id="potential-income" name="potential-income" placeholder="e.g., 500000" step="any">
+
+            <label for="time-devote">How many hours per week can you devote to this idea?</label>
+            <input type="number" id="time-devote" name="time-devote" placeholder="e.g., 20" step="any">
+
+            <button type="button" onclick="generateResult()">Submit</button>
+        </form>
+    </div>
+
+    <div id="get-started" class="tab-content" style="display:none;">
+        <div id="result" class="result result-box"></div>
+        <div class="steps result-box" id="steps"></div>
+    </div>
+
+    <div id="feedback" class="tab-content" style="display:none;">
+            <h2>Feedback</h2>
+            <p>Your feedback is valuable to us! Please let us know your thoughts below.</p>
+            <form id="feedbackForm">
+                <label for="feedbackName">Name:</label>
+                <input type="text" id="feedbackName" name="feedbackName" placeholder="Your Name" required>
+
+                <label for="feedbackEmail">Email:</label>
+                <input type="email" id="feedbackEmail" name="feedbackEmail" placeholder="Your Email" required>
+
+                <label for="feedbackMessage">Message:</label>
+                <textarea id="feedbackMessage" name="feedbackMessage" rows="5" placeholder="Your Feedback" required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="creators">
+        <h2>Meet the Creators</h2>
+        <p>Agastya Joshi | Raghav Maggo | Arnav Chauhan | Aarav Sood</p>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+        }
+
+        function generateResult() {
+            const interest = document.getElementById('interest').value;
+            const capital = document.getElementById('capital').value;
+            const potentialIncome = document.getElementById('potential-income').value;
+            const timeDevote = document.getElementById('time-devote').value;
+
+            const result = `
+                <h2>Personalized Business Idea:</h2>
+                <p>Based on your interests in <strong>${interest}</strong>, you can consider starting a business with an initial capital of <strong>INR ${capital}</strong>. 
+                Aim for a potential monthly income of <strong>INR ${potentialIncome}</strong>, while dedicating <strong>${timeDevote} hours per week</strong>.</p>
+            `;
+
+            const steps = `
+                <h2>Steps to Make Your Idea Feasible:</h2>
+                <ol>
+                    <li>Conduct thorough market research in the <strong>${interest}</strong> domain.</li>
+                    <li>Create a detailed business plan including a budget of <strong>INR ${capital}</strong>.</li>
+                    <li>Identify potential customers and establish your brand presence.</li>
+                    <li>Network with professionals and mentors in the industry.</li>
+                    <li>Launch your business and track your progress regularly.</li>
+                </ol>
+            `;
+
+            document.getElementById('result').innerHTML = result;
+            document.getElementById('steps').innerHTML = steps;
+            showTab('get-started');
+        }
+    </script>
+</body>
+</html>
+<script>
+    function generateResult() {
+        const interest = document.getElementById('interest').value;
+        const capital = document.getElementById('capital').value;
+        const potentialIncome = document.getElementById('potential-income').value;
+        const timeDevote = document.getElementById('time-devote').value;
+
+        const result = `
+            <h2>Personalized Business Idea:</h2>
+            <p>Based on your interests in <strong>${interest}</strong>, you can consider starting a business with an initial capital of <strong>INR ${capital}</strong>. 
+            Aim for a potential monthly income of <strong>INR ${potentialIncome}</strong>, while dedicating <strong>${timeDevote} hours per week</strong>.</p>
+        `;
+
+        const steps = `
+            <h2>Steps to Make Your Idea Feasible:</h2>
+            <ol>
+                <li>Conduct thorough market research in the <strong>${interest}</strong> domain.</li>
+                <li>Create a detailed business plan including a budget of <strong>INR ${capital}</strong>.</li>
+                <li>Identify potential customers and establish your brand presence.</li>
+                <li>Network with professionals and mentors in the industry.</li>
+                <li>Launch your business and track your progress regularly.</li>
+            </ol>
+        `;
+
+        const youtubeVideo = `
+            <h3>Related YouTube Video:</h3>
+        <div id="youtubeVideo" class="result-box" style="display:none;"></div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/q-udGIWQ7Cw" frameborder="0" allowfullscreen></iframe>
+        `;
+
+        document.getElementById('result').innerHTML = result;
+        document.getElementById('steps').innerHTML = steps;
+        document.getElementById('youtubeVideo').innerHTML = youtubeVideo;
+
+        showTab('get-started');
+    }
+</script>
+
